@@ -9,7 +9,7 @@ export default {
   name: 'App',
   components: {},
   mounted() {
-    console.log("this", this.$api.persons.fnGetAll);
+    console.log("this", this.$api.persons.fnGetAll());
     
   }
 }
