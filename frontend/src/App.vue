@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <Spin v-if="isLoading" size="large" fix></Spin>
+    <span>vue-mongo</span>
     <span v-for="item in persons" :key="item._id">{{item.name}}</span>
   </div>
 </template>
