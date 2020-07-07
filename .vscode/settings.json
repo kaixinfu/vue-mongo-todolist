@@ -1,0 +1,30 @@
+// vscode deploy插件 发布的描述文件
+// deployOnSave,true每次保存都会同步
+// targets 发布的地址
+{
+    "deploy": {
+        "packages": [{
+            "files": [
+                "**/*",
+            ],
+            "exclude": [ //  忽略的文件 
+                "node_modules/**",
+                ".git/**",
+                ".vscode/**",
+                "**/node_modules/**",
+            ],
+            "deployOnSave": false,
+            "interactiveAuth": true,
+        }],
+        "targets": [{
+            "type": "sftp",
+            "name": "tengxunServer", // name随意写
+            "dir": "/root/source/vue-mongo-todolist", // 要发布的服务器地址
+            "host": "106.54.179.243",
+            "port": 22,
+            "user": "root",
+            "privateKey": "/Users/kaixinliu/.ssh/id_rsa", //本地电脑的私钥
+            "password": "liukaixin123@"
+        }],
+    },
+}
