@@ -1,16 +1,33 @@
 <template>
   <div id="app">
-    <span>front</span>
+    <Spin v-if="isLoading" size="large" fix></Spin>
+    <span v-for="item in persons" :key="item._id">{{item.name}}</span>
   </div>
 </template>
 
 <script>
 export default {
   name: 'App',
+  data() {
+    return {
+      persons: [],
+      isLoading: false
+    }
+  },
   components: {},
+  methods: {
+    async fnGetAll() {
+      this.isLoading = true
+      let res = await this.$api.persons.fnGetAll();
+      if (res && res.success) {
+        console.log("res", res);
+        this.persons = res.result;
+      }
+      this.isLoading = false
+    }
+  },
   mounted() {
-    console.log("this", this.$api.persons.fnGetAll());
-    
+    this.fnGetAll()
   }
 }
 </script>

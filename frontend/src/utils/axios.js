@@ -12,7 +12,14 @@ axios.interceptors.request.use(
 );
 
 axios.interceptors.response.use(response => {
-    console.log('response', response)
+    let data = response.data;
+    switch (data.code) {
+        case 500:
+            Message.error({content: data.message || "系统错误"});
+            break;
+        default:
+            return data
+    }
 }, err => {
     console.log('err', err)
 })

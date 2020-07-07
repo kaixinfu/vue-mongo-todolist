@@ -17,6 +17,9 @@ class Mongodb{
             this.emmiter.emit("connect");
         })
     }
+    col(colName, dbName = conf.dbName) {
+        return this.client.db(dbName).collection(colName);
+    }
     once(event, cb) {
         this.emmiter.emit(event, cb);
     }
