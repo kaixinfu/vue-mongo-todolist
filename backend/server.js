@@ -8,7 +8,7 @@ app.listen(port, () => {
     console.log("server is run on port: ", port);
 })
 
-app.get("/persons/list", async (req, res) => {
+app.get("/api/list", async (req, res) => {
     const data = await mongo.col("persons").find().toArray();    
     res.json({
         code: 200,

@@ -13,7 +13,7 @@ class Mongodb{
             if (err) {
                 throw err
             }
-            console.log("mongo ---> connect成功");
+            console.log("mongo数据库 ===============> 连接成功");
             this.emmiter.emit("connect");
         })
     }
